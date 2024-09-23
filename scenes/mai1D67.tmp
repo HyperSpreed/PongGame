@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://dr7g6uyxfnv2y"]
+
+[ext_resource type="PackedScene" uid="uid://dca058e2v5enp" path="res://scenes/paddle_left.tscn" id="1_p5ilp"]
+[ext_resource type="PackedScene" uid="uid://hlaahhq8ypp" path="res://scenes/paddle_right.tscn" id="2_2ama4"]
+[ext_resource type="PackedScene" uid="uid://j3u46t2bhqti" path="res://scenes/ball.tscn" id="3_o7wdf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pfgc"]
+size = Vector2(1318, 20)
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="wallTop" type="StaticBody2D" parent="."]
+
+[node name="TopWallCollision" type="CollisionShape2D" parent="wallTop"]
+position = Vector2(639, -10)
+shape = SubResource("RectangleShape2D_3pfgc")
+
+[node name="wallBottom" type="StaticBody2D" parent="."]
+
+[node name="BottomWallCollision" type="CollisionShape2D" parent="wallBottom"]
+position = Vector2(639, 730)
+shape = SubResource("RectangleShape2D_3pfgc")
+
+[node name="ColorRect" type="ColorRect" parent="wallBottom"]
+offset_left = -759.0
+offset_top = 720.0
+offset_right = 2037.0
+offset_bottom = 1239.0
+color = Color(0.156863, 0.219608, 0.0941176, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="wallBottom"]
+offset_left = -1643.0
+offset_top = -68.0
+offset_right = 2676.0
+offset_bottom = 720.0
+color = Color(0.533333, 0.596078, 0.470588, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="wallBottom"]
+offset_left = 1281.0
+offset_top = -93.0
+offset_right = 2789.0
+offset_bottom = 813.0
+color = Color(0.156863, 0.219608, 0.0941176, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="wallBottom"]
+offset_left = -1508.0
+offset_top = -83.0
+offset_bottom = 823.0
+color = Color(0.156863, 0.219608, 0.0941176, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="wallBottom"]
+offset_left = -759.0
+offset_top = -519.0
+offset_right = 2037.0
+color = Color(0.156863, 0.219608, 0.0941176, 1)
+
+[node name="PaddleLeft" parent="." instance=ExtResource("1_p5ilp")]
+position = Vector2(0, 360)
+
+[node name="PaddleRight" parent="." instance=ExtResource("2_2ama4")]
+position = Vector2(1280, 360)
+
+[node name="Ball" parent="." instance=ExtResource("3_o7wdf")]
+position = Vector2(640, 360)
